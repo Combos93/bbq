@@ -7,6 +7,7 @@ gem 'rails', '~> 5.2.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
