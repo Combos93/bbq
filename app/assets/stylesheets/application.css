@@ -14,6 +14,10 @@
  *= require_self
  */
 /* Buffers */
+.buffer-left {
+  padding-left: 30px;
+}
+
 .buffer-top {
   margin-top: 20px;
 }

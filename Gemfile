@@ -9,6 +9,10 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3', '~>1.3.13'
