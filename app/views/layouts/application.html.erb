@@ -46,12 +46,14 @@
       <span class="icon-bar"></span>
     </button>
 
-    <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+    <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-          <div class="navbar-brand buffer-left"><li><%= current_user.name %></li></div>
+          <div class="navbar-brand buffer-left">
+            <li><%= current_user.name %></li>
+          </div>
           <li><%= link_to 'Профиль', current_user %></li>
           <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
         <% else %>
@@ -60,25 +62,25 @@
         <% end %>
       </ul>
     </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+        <div class="col-lg-3">
+
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; <%= t 'app.company' %> 2019</p>
+      </footer>
+
+    </div> <!-- /container -->
   </div>
 </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-9">
-      <%= bootstrap_flash %>
-      <%= yield %>
-    </div>
-    <div class="col-lg-3">
-
-    </div><!--/span-->
-  </div><!--/row-->
-
-  <footer>
-    <p>&copy; Company 2019</p>
-  </footer>
-
-</div> <!-- /container -->
 
 </body>
 </html>
