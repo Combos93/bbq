@@ -28,3 +28,5 @@ ru:
     one: 'одна ошибка'
     few: '%{count} ошибки'
     many: '%{count} ошибок'
+  questions:
+    del_question_confirm?: 'А Вы точно хотите удалить событие?'
