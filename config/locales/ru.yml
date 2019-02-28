@@ -30,3 +30,11 @@ ru:
     many: '%{count} ошибок'
   questions:
     del_question_confirm?: 'А Вы точно хотите удалить событие?'
+  log_in:
+    log_in: 'Войти'
+    sign_up: 'Зарегистрироваться'
+    forgot_pass: 'Забыли пароль?'
+  sign_up:
+    sign_up: 'Зарегистрироваться'
+    log_in: 'Войти'
+    password_how_many: 'Минимум 6 символов'

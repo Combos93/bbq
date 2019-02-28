@@ -1,4 +1,4 @@
-<h3>Sign up</h3>
+<h3><%= I18n.t('sign_up.sign_up') %></h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -14,7 +14,7 @@
       <div class="form-group col-xs-4">
         <%= f.label :password %>
         <small class="form-text text-muted">
-          6 characters minimum
+          <%= I18n.t('sign_up.password_how_many') %>
         </small>
         <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
       </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.submit 'Sign up', :class => 'btn btn-primary' %>
+      <%= f.submit I18n.t('sign_up.sign_up'), :class => 'btn btn-primary' %>
     </div>
   <% end %>
 

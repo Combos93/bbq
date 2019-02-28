@@ -12,11 +12,8 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'pg'
 
-group :production do
-  gem 'pg'
-end
-
 group :development, :test do
   gem 'byebug'
+  gem 'web-console'
 end
 
