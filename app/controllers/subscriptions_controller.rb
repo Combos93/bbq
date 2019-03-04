@@ -6,10 +6,14 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @new_subscription.save
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
+    pack_usersemails = User.connection.select_values(User.select("email").to_sql)
+    pack_subscriptionsemails = Subscription.connection.select_values(Subscription.select("user_email").to_sql)
+
+    if pack_usersemails.include?(@new_subscription.user_email) || pack_subscriptionsemails.include?(@new_subscription.user_email)
+      redirect_to @event, alert: I18n.t('controllers.subscriptions.error')
     else
-      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+      @new_subscription.save
+      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     end
   end
 
