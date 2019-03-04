@@ -21,6 +21,14 @@ ru:
       destroyed: 'Вы удалили мероприятие ;('
     users:
       updated: 'Вы обновили свой профиль'
+    comments:
+      destroyed: 'Комментарий удалён'
+      created: 'Ваш комментарий создан'
+      error: 'Ошибка с комментариями'
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
   app:
     name: 'Шашлыкs и не только'
     company: 'Хороший программист'
@@ -38,3 +46,9 @@ ru:
     sign_up: 'Зарегистрироваться'
     log_in: 'Войти'
     password_how_many: 'Минимум 6 символов'
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
