@@ -8,7 +8,7 @@ class Subscription < ApplicationRecord
   validates :user_email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/,
             unless: Proc.new { |a| a.present? }
 
-  validates :user_name, uniqueness: { scope: :event_id }, if: Proc.new { |a| a.present? } ##### user -> user_name
+  validates :user, uniqueness: { scope: :event_id }, if: Proc.new { |a| a.present? }
   validates :user_email, uniqueness: { scope: :event_id },
             unless: Proc.new { |a| a.present? }
 
@@ -33,8 +33,8 @@ class Subscription < ApplicationRecord
   private
 
   def just_subscriber
-    if self.user == self.event.user
-      errors.add(:user, "#{user.name}, Вы не можете подписываться на своё же событие!")
+    if user == event.user
+      errors.add(:user, :invalid)
     end
   end
 end
