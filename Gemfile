@@ -13,6 +13,7 @@ gem 'rails-i18n'
 gem 'pg'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug'
