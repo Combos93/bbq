@@ -12,6 +12,8 @@ class Subscription < ApplicationRecord
   validates :user_email, uniqueness: { scope: :event_id },
             unless: Proc.new { |a| a.present? }
 
+  validate :just_subscriber#, on: :create
+
   def user_name
     if user.present?
       user.name
@@ -25,6 +27,14 @@ class Subscription < ApplicationRecord
       user.email
     else
       super
+    end
+  end
+
+  private
+
+  def just_subscriber
+    if self.user == self.event.user
+      errors.add(:user, "#{user.name}, Вы не можете подписываться на своё же событие!")
     end
   end
 end
