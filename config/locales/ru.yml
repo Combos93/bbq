@@ -3,10 +3,14 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      subscription: 'Подписка'
+      comment: 'Комментарий'
+      photo: 'Фотография'
     attributes:
       user:
         email: 'Email'
         name: 'Имя'
+        avatar: 'Аватарка'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
       event:
@@ -14,6 +18,14 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      comment:
+        user_name: 'Ваше имя'
+        body: 'Комментарий'
+      subscription:
+        user_name: 'Ваше имя'
+        user_email: 'Ваше email'
+      photo:
+        photo: 'Фотография'
   controllers:
     events:
       created: 'Вы создали новое мероприятие'
@@ -30,6 +42,10 @@ ru:
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
       same_email: 'Введите другой e-mail'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
   app:
     name: 'Шашлыкs и не только'
     company: 'Хороший программист'
