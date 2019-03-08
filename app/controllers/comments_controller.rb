@@ -7,21 +7,23 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      notify_subscribers(@event, @new_comment)
+      # if current_user
+        notify_subscribers(@event, @new_comment)
 
-      redirect_to @event, notice: I18n.t('controllers.comments.created')
-    else
-      render 'events/show', alert: I18n.t('controllers.comments.error')
+        redirect_to @event, notice: I18n.t('controllers.comments.created')
+      else
+        render 'events/show', alert: I18n.t('controllers.comments.error')
+      end
     end
-  end
+  # end
 
   def destroy
-    message = { notice: I18n.t('controllers.comments.destroyed') }
+    message = {notice: I18n.t('controllers.comments.destroyed')}
 
     if current_user_can_edit?(@comment)
       @comment.destroy!
     else
-      message = { alert: I18n.t('controllers.comments.error') }
+      message = {alert: I18n.t('controllers.comments.error')}
     end
 
     redirect_to @event, message
@@ -30,7 +32,7 @@ class CommentsController < ApplicationController
   private
 
   def notify_subscribers(event, comment)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
+    all_emails = (event.subscriptions.map(&:user_email) - [event.comments.last.user] + [event.user.email]).uniq
 
     all_emails.each do |mail|
       EventMailer.comment(event, comment, mail).deliver_now
