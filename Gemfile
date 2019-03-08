@@ -13,7 +13,6 @@ gem 'rails-i18n'
 gem 'pg'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'delayed_job_active_record'
 
 gem 'fog-aws'
 gem "aws-sdk-s3", require: false

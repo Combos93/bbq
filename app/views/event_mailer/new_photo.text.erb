@@ -1,5 +1,4 @@
 Event#photo
 
 <%= @greeting %>, find me in app/views/event_mailer/photo.text.erb
-<%#= image_tag attachments[@photo] %>
-<%= Rails.join(@photo.url) %>
+<%= link_to image_tag(@photo.photo.thumb.url), @photo.photo.url %>
