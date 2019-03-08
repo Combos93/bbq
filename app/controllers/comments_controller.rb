@@ -7,15 +7,14 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      # if current_user
+      unless user_signed_in?
         notify_subscribers(@event, @new_comment)
-
-        redirect_to @event, notice: I18n.t('controllers.comments.created')
-      else
-        render 'events/show', alert: I18n.t('controllers.comments.error')
       end
+      redirect_to @event, notice: I18n.t('controllers.comments.created')
+    else
+      render 'events/show', alert: I18n.t('controllers.comments.error')
     end
-  # end
+  end
 
   def destroy
     message = {notice: I18n.t('controllers.comments.destroyed')}
@@ -33,8 +32,6 @@ class CommentsController < ApplicationController
 
   def notify_subscribers(event, comment)
     all_emails = (event.subscriptions.map(&:user_email) - [event.comments.last.user.email] + [event.user.email]).uniq
-    # Event.find(10).comments.last.user.email
-    # event.user.email - владелец события
     all_emails.each do |mail|
       EventMailer.comment(event, comment, mail).deliver_now
     end
