@@ -23,7 +23,7 @@ ru:
         body: 'Комментарий'
       subscription:
         user_name: 'Ваше имя'
-        user_email: 'Ваше email'
+        user_email: 'Ваш email'
       photo:
         photo: 'Фотография'
   controllers:
@@ -59,6 +59,16 @@ ru:
     log_in: 'Войти'
     sign_up: 'Зарегистрироваться'
     forgot_pass: 'Забыли пароль?'
+  forgot_pass:
+    Send me reset password instructions: 'Выслать новый пароль'
+    Forgot your password: 'Забыли ваш пароль?'
+    email: 'Ваш email'
+  change_pass:
+    change: 'Изменение пароля'
+    new: 'Новый пароль'
+    chars: 'символов минимум'
+    corfirm: 'Подтвердите Ваш пароль'
+    fix_change: 'Изменить пароль'
   sign_up:
     sign_up: 'Зарегистрироваться'
     log_in: 'Войти'
