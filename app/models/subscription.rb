@@ -2,8 +2,6 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validates :event, presence: true
-
   validates :user_name, presence: true, unless: -> { user.present? }
   validates :user_email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,6})\z/,
             unless: -> { user.present? }

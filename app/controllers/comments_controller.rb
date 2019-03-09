@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      unless user_signed_in?
+      # unless user_signed_in?
         notify_subscribers(@event, @new_comment)
-      end
+      # end
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
       render 'events/show', alert: I18n.t('controllers.comments.error')
