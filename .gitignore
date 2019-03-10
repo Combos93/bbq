@@ -18,6 +18,7 @@
 !/tmp/.keep
 .idea
 
+public/assets/**
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
