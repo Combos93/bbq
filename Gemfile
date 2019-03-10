@@ -13,9 +13,7 @@ gem 'rails-i18n'
 gem 'pg'
 gem 'carrierwave'
 gem 'rmagick'
-
 gem 'fog-aws'
-gem "aws-sdk-s3", require: false
 
 group :development, :test do
   gem 'byebug'
