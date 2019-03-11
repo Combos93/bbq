@@ -32,9 +32,7 @@ class Subscription < ApplicationRecord
   private
 
   def check_all_emails
-    if User.find_by email: user_email
-      errors.add(:user_email, "isn't valid! Entered email belongs to registered user!")
-    end
+    errors.add(:user_email, :invalid?) if User.find_by_email(user_email)
   end
 
   def just_subscriber

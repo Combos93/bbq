@@ -26,6 +26,12 @@ ru:
         user_email: 'Ваш email'
       photo:
         photo: 'Фотография'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              invalid?: ' принадлежит зарегистрированному пользователю'
   controllers:
     events:
       created: 'Вы создали новое мероприятие'
