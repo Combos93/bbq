@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   validates :event, presence: true
   validates :body, presence: true
 
-  validates :user_name, presence: true, unless: Proc.new { |a| a.present? }
+  validates :user_name, presence: true, unless: Proc.new { |a| a.user_name.present? }
 
   def user_name
     if user.present?
