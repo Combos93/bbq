@@ -13,6 +13,7 @@ gem 'pg'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
+gem 'sassc-rails'
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'
