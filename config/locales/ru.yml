@@ -33,6 +33,10 @@ ru:
           attributes:
             user_email:
               invalid?: ' принадлежит зарегистрированному пользователю'
+      errors_field:
+        title_one_error: 'В Вашей форме одна ошибка'
+        title_few_errors: 'В Вашей форме %{count} ошибки'
+        title_many_errors: 'В Вашей форме %{count} ошибок'
   controllers:
     events:
       created: 'Вы создали новое мероприятие'
