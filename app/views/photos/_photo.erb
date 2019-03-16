@@ -1,11 +1,12 @@
 <% image_title = "Добавил #{render partial: 'users/user', object: photo.user}" %>
+<% deletion_photo = link_to(fa_icon('trash'), event_photo_path(photo.event, photo),
+                      method: :delete, data: {confirm: t('controllers.photos.question')} ) %>
 
 <% if current_user_can_edit?(photo) %>
-  <%= link_to(fa_icon('trash'), event_photo_path(photo.event, photo),
-              method: :delete, data: { confirm: t('.destroy_confirm') }) %>
+  <% image_title += deletion_photo %>
 <% end %>
 
 <div class="event-photo buffer-both">
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, class:  'img-fluid',
-              data: { toggle: 'lightbox', title: image_title, gallery:  "event#{photo.event.id}" } %>
+  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, class: 'img-fluid',
+              data: {toggle: 'lightbox', title: image_title, gallery: "event-photos"} %>
 </div>
