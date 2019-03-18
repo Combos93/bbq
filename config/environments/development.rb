@@ -48,6 +48,9 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
+  #
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 
   config.serve_static_assets = true
 
@@ -70,14 +73,14 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    user_name: 'combosrails',
-    password: 'FreezING19930001a',
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.smtp_(settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: 587,
+  #   user_name: 'combosrails',
+  #   password: '',
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # })
 end

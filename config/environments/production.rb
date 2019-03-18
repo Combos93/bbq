@@ -27,16 +27,16 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.serve_static_assets = true
+  # config.serve_static_assets = true ###
 
-  config.assets.debug = true
+  # config.assets.debug = true ###
 
   # Suppress logger output for asset requests.
-  config.assets.quiet = true
+  # config.assets.quiet = true ###
 
-  config.assets.compile = true
+  config.assets.compile = false ###
 
-  config.assets.digest = true
+  # config.assets.digest = true ###
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -117,7 +117,7 @@ Rails.application.configure do
   # А это для SendGrid
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
-    :port           => '587',
+    :port           =>  '587',
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],

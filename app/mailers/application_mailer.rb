@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'eventslikebbq@combos.com'
+  default from: 'combosrails@gmail.com'
   layout 'mailer'
 end
