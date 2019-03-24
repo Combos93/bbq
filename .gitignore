@@ -32,3 +32,9 @@ public/assets/**
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 public/uploads
+
+# database
+
+config/database.yml
+config/secrets.yml
+config/credentials.yml.enc

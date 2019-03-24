@@ -25,3 +25,6 @@ group :development, :test do
   gem "letter_opener", :group => :development
 end
 
+group :production do
+  gem 'pg'
+end
