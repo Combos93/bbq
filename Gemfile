@@ -9,7 +9,6 @@ gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
-gem 'pg'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
@@ -29,6 +28,8 @@ group :development, :test do
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-secrets-yml', '~> 1.1.0'
+
 end
 
 group :production do
