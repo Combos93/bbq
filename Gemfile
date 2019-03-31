@@ -23,6 +23,12 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console'
   gem "letter_opener", :group => :development
+
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
 end
 
 group :production do
