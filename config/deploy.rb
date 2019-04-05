@@ -5,6 +5,7 @@ set :application, "eventslikebbq"
 set :repo_url, "git@github.com:Combos93/bbq.git"
 
 set :deploy_to, "/home/deploy/www"
+# set :linked_files, %w{config/master.key}
 
 append :linked_files, 'config/database.yml', 'config/secrets.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
@@ -28,7 +29,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
 # Default value for linked_dirs is []
 
 # Default value for default_e nv is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+# set :default_env, { path: "deploy@eventslikebbq:/home/deploy/.profile" }
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
@@ -38,3 +39,8 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+# New
+# set :default_env, {
+#   :RAILS_ENV => "production",
+#   :RAILS_MASTER_KEY => ENV["RAILS_MASTER_KEY"]
+# }
