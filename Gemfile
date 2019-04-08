@@ -13,6 +13,9 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
 gem 'sassc-rails'
+gem 'pg'
+
+gem 'resque'
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'
@@ -31,6 +34,6 @@ group :development, :test do
 
 end
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
