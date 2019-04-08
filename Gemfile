@@ -31,9 +31,5 @@ group :development, :test do
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
-
+  gem 'capistrano-resque', require: false
 end
-
-# group :production do
-#   gem 'pg'
-# end
