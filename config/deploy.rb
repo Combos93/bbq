@@ -1,17 +1,26 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
+namespace :debug do
+  desc 'Print ENV variables'
+  task :env do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :printenv
+    end
+  end
+end
 set :application, "eventslikebbq"
 set :repo_url, "git@github.com:Combos93/bbq.git"
 
 set :deploy_to, "/home/deploy/www"
 set :linked_files, %w{config/master.key}
 
-append :linked_files, 'config/database.yml', 'config/secrets.yml'
+append :linked_files, 'config/database.yml', 'config/secrets.yml', '.env'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
-                                   'vendor/bundle', 'public/system', 'public/uploads'
+'vendor/bundle', 'public/system', 'public/uploads'
 
 after 'deploy:restart', 'resque:restart'
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

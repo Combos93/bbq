@@ -36,6 +36,7 @@ public/uploads
 # database
 
 config/database.yml
-config/secrets.yml
+#config/secrets.yml
 config/credentials.yml.enc
-config/secrets.yml
+
+.env

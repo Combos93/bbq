@@ -11,6 +11,7 @@ gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'dotenv-rails', groups: [:development, :test, :production]
 gem 'fog-aws'
 gem 'sassc-rails'
 gem 'pg'

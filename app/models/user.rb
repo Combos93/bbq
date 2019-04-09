@@ -16,9 +16,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
-  end
+  PostmailerJob
 
   private
 
