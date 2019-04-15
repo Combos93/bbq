@@ -34,7 +34,8 @@ class CommentsController < ApplicationController
     all_emails -= [current_user.email] if user_signed_in?
 
     all_emails.each do |mail|
-      EventMailer.comment(event, comment, mail).deliver_now
+      # EventMailer.comment(event, comment, mail).deliver_now
+      SenderCommentsJob.perform_later(event, comment, mail)
     end
   end
 
