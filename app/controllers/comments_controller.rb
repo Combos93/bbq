@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
     all_emails.each do |mail|
       # EventMailer.comment(event, comment, mail).deliver_now
-      SenderCommentsJob.perform_later(event, comment, mail)
+      SenderCommentsJob.perform_now(event, comment, mail)
     end
   end
 

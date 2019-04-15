@@ -9,7 +9,7 @@ namespace :debug do
     end
   end
 end
-set :application, "eventslikebbq"
+set :application, "bbq"
 set :repo_url, "git@github.com:Combos93/bbq.git"
 
 set :deploy_to, "/home/deploy/www"

@@ -40,3 +40,6 @@ config/database.yml
 config/credentials.yml.enc
 
 .env
+
+.ansible/
+ansible.cfg
