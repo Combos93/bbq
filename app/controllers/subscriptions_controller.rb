@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      SenderSubscrJob.perform_now(@event, @new_subscription)
+      SenderSubscrJob.perform_later(@event, @new_subscription)
 
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else

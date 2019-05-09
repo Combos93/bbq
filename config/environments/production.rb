@@ -112,7 +112,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   # Устанавливаем протокол, по которому отправлять (SMTP)
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :sendmail
 
   # А это для SendGrid
    ActionMailer::Base.smtp_settings = {
