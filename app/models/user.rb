@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :validatable,
-    :omniauthable, omniauth_providers: [:facebook]
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :vkontakte]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :events
 
-  validates :name, presence: true, length: { maximum: 35 }
+  validates :name, presence: true, length: {maximum: 35}
 
   before_validation :set_name, on: :create
 
@@ -49,5 +49,19 @@ class User < ApplicationRecord
       user.email = email
       user.password = Devise.friendly_token.first(16)
     end
+  end
+
+
+  def self.find_for_vkontakte_oauth(access_token)
+    email = access_token.info.email
+    return nil if email.nil?
+
+    user = find_by(email: email)
+    return user if user.present?
+
+    url = access_token.info.urls[:Vkontakte]
+    remote_avatar_url = access_token.extra.raw_info.photo_200
+
+    create_user_from_oauth(access_token: access_token, url: url, remote_avatar_url: remote_avatar_url)
   end
 end
