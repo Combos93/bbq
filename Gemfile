@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 gem 'rails', '~> 5.2.2'
+
+gem 'pg'
+
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
@@ -14,7 +17,7 @@ gem 'rmagick'
 gem 'dotenv-rails', groups: [:development, :test, :production]
 gem 'fog-aws'
 gem 'sassc-rails'
-gem 'pg'
+gem 'pundit'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
