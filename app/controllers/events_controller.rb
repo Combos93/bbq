@@ -7,11 +7,11 @@ class EventsController < ApplicationController
   before_action :password_guard!, only: [:show]
 
   after_action :verify_authorized, only: [:edit, :update, :destroy, :show]
-  # skip_after_action :verify_authorized, only: [:show]
 
   # GET /events
   def index
-    @events = policy_scope(Event)
+    @events = Event.all
+    # @events = policy_scope(Event)
   end
 
   # GET /events/1
@@ -25,8 +25,6 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    authorize @event
-
     @event = current_user.events.build
   end
 
@@ -81,6 +79,8 @@ class EventsController < ApplicationController
     end
   end
 
+  # Уже не нужен - так как установили Pundit
+  #
   # def set_current_user_event
   #   @event = current_user.events.find(params[:id])
   # end
