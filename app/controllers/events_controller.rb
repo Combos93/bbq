@@ -2,7 +2,6 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   before_action :set_event, only: [:show]
-  # before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
   before_action :password_guard!, only: [:show]
 
@@ -10,8 +9,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
-    # @events = policy_scope(Event)
+    @events = policy_scope(Event)
   end
 
   # GET /events/1
@@ -78,12 +76,6 @@ class EventsController < ApplicationController
       render 'password_form'
     end
   end
-
-  # Уже не нужен - так как установили Pundit
-  #
-  # def set_current_user_event
-  #   @event = current_user.events.find(params[:id])
-  # end
 
   def set_event
     @event = Event.find(params[:id])

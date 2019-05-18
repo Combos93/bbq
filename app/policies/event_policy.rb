@@ -1,9 +1,4 @@
 class EventPolicy < ApplicationPolicy
-  # нужен чтобы аутентифицированный юзер мог событие создавать
-  def create?
-    user.present?
-  end
-
   def show?
     user_is_owner?(record)
   end
@@ -13,16 +8,16 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user_is_owner?(record)
+    update?
   end
 
   def edit?
-    user_is_owner?(record)
+    update?
   end
 
   class Scope < Scope
     def resolve
-      scope.where(user: user) if user.present?
+      scope.all
     end
   end
 
