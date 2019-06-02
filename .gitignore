@@ -43,3 +43,4 @@ config/credentials.yml.enc
 
 .ansible/
 ansible.cfg
+AnsibleForVPS
