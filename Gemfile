@@ -17,7 +17,7 @@ gem 'rmagick'
 gem 'dotenv-rails', groups: [:development, :test, :production]
 gem 'fog-aws'
 gem 'sassc-rails'
-gem 'pundit'
+#gem 'pundit'
 
 gem 'omniauth'
 gem 'omniauth-facebook'

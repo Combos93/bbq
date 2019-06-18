@@ -5,16 +5,19 @@ class EventsController < ApplicationController
 
   before_action :password_guard!, only: [:show]
 
-  after_action :verify_authorized, only: [:edit, :update, :destroy, :show]
+  before_action :set_current_user_event, only: [:edit, :update, :destroy]
+
+  # after_action :verify_authorized, only: [:edit, :update, :destroy, :show]
 
   # GET /events
   def index
-    @events = policy_scope(Event)
+    #    @events = policy_scope(Event)
+    @events = Event.all
   end
 
   # GET /events/1
   def show
-    authorize @event
+    #   authorize @event
 
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
@@ -31,7 +34,7 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    authorize @event
+    #   authorize @event
 
     @event = current_user.events.build(event_params)
 
@@ -44,7 +47,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
-    authorize @event
+    #   authorize @event
 
     if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
@@ -55,7 +58,7 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
-    authorize @event
+    #   authorize @event
 
     @event.destroy
     redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
@@ -75,6 +78,10 @@ class EventsController < ApplicationController
       flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
       render 'password_form'
     end
+  end
+
+  def set_current_user_event
+    @event = current_user.events.find(params[:id])
   end
 
   def set_event
