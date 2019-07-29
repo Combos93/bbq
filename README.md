@@ -1,24 +1,47 @@
-# README
+### Приложение "Шашлыки и не только"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
 
-Things you may want to cover:
+**Учебный проект-приложение**
 
-* Ruby version
+Проект-приложение реализовано на `Ruby/Rails (v. 5.2.3)` в учебных целях.
 
-* System dependencies
+**Краткое описание**
 
-* Configuration
+Приложение `eventslikebbq` предназначено для планирования мероприятий. После прохождения регистрации пользователи могут создавать мероприятия, в которых могут принимать участия другие пользователи, в том числе и неавторизованные. Имеется опциональная возможность ограничения доступа к мероприятию, с помощью установки пин-кода.
 
-* Database creation
+**Использованные технологии:**
 
-* Database initialization
+* Оформление с помощью `Bootstrap 4`, реализация аутентификации с помощью библиотеки `Devise`
 
-* How to run the test suite
+* Осуществлён перевод приложения путём подключения библиотеки `I18n`
 
-* Services (job queues, cache servers, search engines, etc.)
+* связь Many-to-many
 
-* Deployment instructions
+* Отправка электронной почты (ActionMailer) через `SendGrid`
 
-* ...
+* Обработка изображения на удалённом сервере (`AWS`, `CarrierWave & rmagick`)
+
+* Реализована авторизация через социальные сети: Facebook, VKontakte
+
+**Установка и запуск приложения**
+
+* Выполнить установку всех библиотек и подготовить базу данных(используется БД Postgres) - файл `database.yml`
+
+```
+bundle install
+bundle exec rake db:setup && bundle exec rake db:migrate
+```
+
+* Необходимо установить переменные окружения для работы:
+
+```
+SENDGRID_USERNAME
+SENDGRID_PASSWORD
+```
+
+Для запуска локального сервера нужно выполнить команду:
+
+```
+bundle exec rails s
+```
