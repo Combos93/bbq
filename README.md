@@ -12,7 +12,9 @@
 
 **Использованные технологии:**
 
-* Оформление с помощью `Bootstrap 4`, реализация аутентификации с помощью библиотеки `Devise`
+* Оформление с помощью `Bootstrap 4`
+
+* Реализация аутентификации с помощью библиотеки `Devise`
 
 * Осуществлён перевод приложения путём подключения библиотеки `I18n`
 
@@ -26,7 +28,7 @@
 
 **Установка и запуск приложения**
 
-* Выполнить установку всех библиотек и подготовить базу данных(используется БД Postgres) - файл `database.yml`
+* Выполнить установку всех библиотек и подготовить базу данных(используется БД Postgres) - файл `database.yml` в папке 'config'.
 
 ```
 bundle install
@@ -38,6 +40,11 @@ bundle exec rake db:setup && bundle exec rake db:migrate
 ```
 SENDGRID_USERNAME
 SENDGRID_PASSWORD
+
+omniauth_facebook_id
+omniauth_facebook_secret
+omniauth_vkontakte_id
+omniauth_vkontakte_secret
 ```
 
 Для запуска локального сервера нужно выполнить команду:
